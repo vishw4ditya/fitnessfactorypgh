@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg-base: #0a0c10;
+  --color-bg-surface: #14171d;
+  --color-bg-elevated: #1a1d24;
+  --color-bg-inset: #0d1016;
+  --color-bg-header: #0b447c;
+  --color-bg-footer: #080a0e;
+
+  --color-border-subtle: #2a2e37;
+  --color-border-bright: #3e4554;
+
+  --color-accent-red: #c8102e;
+  --color-accent-red-hover: #e11637;
+  --color-accent-blue: #3b82f6;
+  --color-accent-sky: #7db7ff;
+  --color-accent-pink: #f48fb1;
+  --color-accent-purple: #8b5cf6;
+
+  --radius-card: 0.625rem;
+  --radius-panel: 0.75rem;
+
+  --shadow-red-glow: 0 8px 24px -4px rgba(200, 16, 46, 0.55), 0 2px 6px rgba(200, 16, 46, 0.35);
+  --shadow-red-card: 0 0 42px -8px rgba(200, 16, 46, 0.24);
+  --shadow-blue-glow: 0 0 36px -8px rgba(59, 130, 246, 0.25);
+  --shadow-card: 0 12px 30px -12px rgba(0, 0, 0, 0.65);
+
+  --space-section: 4.5rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--color-bg-base);
+    color: #f1f5f9;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  body {
+    overflow-x: hidden;
+    background-color: var(--color-bg-base);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-display {
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 0.015em;
+  }
+}
+
+/* Header gradient matching rich steel-navy aesthetic */
+.header-bar-bg {
+  background: linear-gradient(90deg, #073e73 0%, #0b4c8a 48%, #093b6f 100%);
+  border-bottom: 1px solid rgba(125, 183, 255, 0.2);
+}
+
+/* Blue 24/7 banner gradient */
+.banner-247-bg {
+  background: linear-gradient(90deg, #1b3680 0%, #2648a6 52%, #132864 100%);
+}
+
+/* Footer top thin purple-to-blue divider */
+.footer-top-gradient {
+  height: 2px;
+  background: linear-gradient(90deg, #7c3aed 0%, #a855f7 35%, #3b82f6 100%);
+}
+
+/* Gradient headline highlight (blue -> lavender -> pink) */
+.text-gradient-blue-pink {
+  background: linear-gradient(90deg, #7db7ff 0%, #a78bfa 50%, #f48fb1 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Scroll reveal utility */
+.reveal-section {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal-section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Custom scrollbar for dark industrial look */
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0c10;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #242934;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #353c4c;
+}
